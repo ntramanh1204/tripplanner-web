@@ -6,7 +6,7 @@ const Header = () => {
         <Navbar variant="white" style={{ backgroundColor: 'transparent', margin: '0 2vw' }}>
             <Navbar.Brand href="#home">
                 <img
-                    src="/image/logo"
+                    src="/images/logo.jpg"
                     width="30"
                     height="30"
                     className="d-inline-block align-top"

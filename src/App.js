@@ -15,7 +15,7 @@ function App() {
       <InspiringSection />
       <CustomerFeedbacks />
       {/* <RecommendedTrips /> */}
-      <Footer />
+      <Footer /> 
     </div>
   );
 }
