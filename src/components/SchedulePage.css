@@ -1,0 +1,18 @@
+.schedule-page {
+  padding: 20px;
+}
+
+.schedule-list {
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.schedule-map {
+  padding: 0;
+  height: 100vh;
+}
+
+.card {
+  margin-bottom: 20px;
+}

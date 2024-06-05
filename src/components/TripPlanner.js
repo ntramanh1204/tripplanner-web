@@ -1,48 +1,99 @@
 import React from 'react';
-import { Container, Row, Col, Button, Form, InputGroup } from 'react-bootstrap';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Container, Row, Col, Button, Form, InputGroup, FormCheck } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './TripPlanner.css';
 
 const TripPlanner = () => {
+  const navigate = useNavigate();
+
+  const handleNavigation = () => {
+    navigate('/hotels');
+  };
+
   return (
-    <Container className="mt-5">
-      <Row className="justify-content-center">
-        <Col md={8}>
-          <h1 className="text-center">Plan your next adventure</h1>
-          <Form>
-            <Form.Group controlId="formCity">
-              <Form.Label>Where do you want to go?</Form.Label>
-              <Form.Control type="text" placeholder="Select a city" />
-            </Form.Group>
-            <Form.Group controlId="formDates" className="mt-3">
-              <Button variant="outline-secondary">Select dates</Button>
-            </Form.Group>
-            <Form.Group controlId="formAddDestination" className="mt-3">
-              <Button variant="danger">+ Add destination</Button>
-            </Form.Group>
-            <Form.Group controlId="formActivities" className="mt-4">
-              <Form.Label>Select the kind of activities you want to do</Form.Label>
-              <div className="d-flex flex-wrap">
-                <Button variant="outline-secondary" className="me-2 mb-2">Kid Friendly</Button>
-                <Button variant="outline-secondary" className="me-2 mb-2">Museums</Button>
-                <Button variant="success" className="me-2 mb-2">Shopping</Button>
-                <Button variant="outline-secondary" className="me-2 mb-2">Historical</Button>
-                <Button variant="outline-secondary" className="me-2 mb-2">Outdoor Adventures</Button>
-                <Button variant="success" className="me-2 mb-2">Art & Cultural</Button>
-                <Button variant="outline-secondary" className="me-2 mb-2">Amusement Parks</Button>
-              </div>
-            </Form.Group>
-            <Form.Group controlId="formPeople" className="mt-4">
-              <Form.Label>How many people are going?</Form.Label>
-              <InputGroup>
-                <Form.Control type="number" defaultValue={1} min={1} />
-                <InputGroup.Text>Person</InputGroup.Text>
-              </InputGroup>
-            </Form.Group>
-          </Form>
+    <Container className="trip-planner-container mt-5">
+    <Row className="justify-content-center">
+      <Col md={6}>
+        <Form className="trip-planner-form border p-4 rounded">
+          <h1 className="text-center mb-4">Plan dream vacation</h1>
+          <Form.Label>Where do you want to go?</Form.Label>
+          <Form.Group controlId="formDestination" className="d-flex align-items-center">
+            <div className="w-100 me-2">
+              <Form.Control type="text" placeholder="Enter your dream destination" />
+            </div>
+            <div className="w-25">
+              <Button variant="outline-secondary" block>
+                Select dates
+              </Button>
+            </div>
+          </Form.Group>
+          <Form.Group controlId="formAddDestination" className="mt-3 d-flex justify-content-center align-items-center">
+            <Button variant="danger" className="m-auto">+ Add destination</Button>
+          </Form.Group>
+          <Form.Group controlId="formActivities" className="mt-4">
+            <Form.Label>Select the kind of activities you want to do</Form.Label>
+            <div className="d-flex flex-wrap justify-content-center">
+              <Button variant="outline-secondary" className="me-2 mb-2">Kid Friendly</Button>
+              <Button variant="outline-secondary" className="me-2 mb-2">Museums</Button>
+              <Button variant="success" className="me-2 mb-2">Shopping</Button>
+              <Button variant="outline-secondary" className="me-2 mb-2">Historical</Button>
+              <Button variant="outline-secondary" className="me-2 mb-2">Outdoor Adventures</Button>
+              <Button variant="success" className="me-2 mb-2">Art & Cultural</Button>
+              <Button variant="outline-secondary" className="me-2 mb-2">Amusement Parks</Button>
+            </div>
+          </Form.Group>
+          <Form.Group controlId="formPeople" className="mt-4">
+            <Form.Label>How many people are going?</Form.Label>
+            <InputGroup>
+              <Form.Control type="number" defaultValue={1} min={1} />
+              <InputGroup.Text>Person</InputGroup.Text>
+            </InputGroup>
+          </Form.Group>
+          <Form.Group controlId="formBudget" className="mt-3">
+            <Form.Label>Budget per person (nightly):</Form.Label>
+            <InputGroup>
+              <Form.Control type="number" />
+              <InputGroup.Text>Currency</InputGroup.Text>
+            </InputGroup>
+          </Form.Group>
+          <Form.Group controlId="formTravelStyle" className="mt-3">
+            <Form.Label>Travel Style:</Form.Label>
+            <FormCheck inline label="Adventure" name="travelStyle" type="radio" />
+            <FormCheck inline label="Relaxation" name="travelStyle" type="radio" />
+            <FormCheck inline label="Culture" name="travelStyle" type="radio" />
+            <FormCheck inline label="Luxury" name="travelStyle" type="radio" />
+            <FormCheck inline label="Family-friendly" name="travelStyle" type="radio" />
+          </Form.Group>
+          <Form.Group controlId="formAccommodation" className="mt-4">
+            <Form.Label>Accommodation Preference:</Form.Label>
+            <FormCheck inline label="Hotel" name="accommodation" type="radio" />
+            <FormCheck inline label="Hostel" name="accommodation" type="radio" />
+            <FormCheck inline label="Resort" name="accommodation" type="radio" />
+            <FormCheck inline label="Vacation Rental" name="accommodation" type="radio" />
+          </Form.Group>
+          <Form.Group controlId="formTransportation" className="mt-4">
+            <Form.Label>Transportation Preference:</Form.Label>
+            <FormCheck inline label="Flying" name="transportation" type="radio" />
+            <FormCheck inline label="Road Trip" name="transportation" type="radio" />
+            <FormCheck inline label="Cruise" name="transportation" type="radio" />
+          </Form.Group>
+          <div className="text-center">
+            <Button onClick={handleNavigation} className="btn btn-primary mt-4">
+              Search for Hotels
+            </Button>
+          </div>
+        </Form>
+      </Col>
+      <Col md={6}>
+          <MapContainer center={[41.0128, 28.9647]} zoom={13} className="map-container">
+            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          </MapContainer>
         </Col>
-      </Row>
-    </Container>
+    </Row>
+  </Container>
+
   );
-}
+};
 
 export default TripPlanner;

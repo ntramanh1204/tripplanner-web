@@ -1,0 +1,53 @@
+.hotel-list-container {
+  padding-top: 50px;
+}
+
+.hotel-list-container h1 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hotel-list-container p {
+  font-size: 16px;
+}
+
+.hotel-map {
+  height: 600px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-card {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hotel-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 15px;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .hotel-list-container {
+    padding-top: 20px;
+  }
+
+  .hotel-map {
+    height: 400px;
+  }
+}
