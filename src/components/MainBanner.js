@@ -1,6 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const MainBanner = () => {
+    let navigate = useNavigate();
+
+    const routeChange = () => {
+        let path = `/create-trip`;
+        navigate(path);
+    }
+
     return (
         <div style={{
             position: 'relative',
@@ -33,7 +41,12 @@ const MainBanner = () => {
             }}>
                 <h1>Discover Your Perfect Journey</h1>
                 <p>Your ultimate companion for personalized and seamless travel planning.</p>
-                <button className="rounded-pill" style={{ padding: '10px 20px', backgroundColor: 'green', color: 'white' }}>Create a New Trip</button>
+                <button id="btnCreateNewTrip" 
+                    className="rounded-pill" 
+                    style={{ padding: '10px 20px', backgroundColor: 'green', color: 'white' }}
+                    onClick={routeChange}>
+                    Create a New Trip
+                </button>
             </div>
         </div>
     );
