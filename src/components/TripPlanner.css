@@ -1,55 +1,62 @@
+.trip-planner-container {
+  /* background-color: #f3eddc; */
+  padding: 2rem 0;
+}
+
+.trip-planner-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.trip-planner-form {
+  background-color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  padding: 2rem;
+}
+
 .form-label {
-    font-size: 1.2rem;
-    font-weight: 500;
-  }
-  
-  .form-control {
-    height: 3rem;
-    font-size: 1rem;
-  }
-  
-  .btn {
-    height: 3rem;
-    font-size: 1rem;
-  }
-  
-  .btn-outline-secondary {
-    color: #6c757d;
-    border-color: #6c757d;
-  }
-  
-  .btn-outline-secondary:hover {
-    background-color: #6c757d;
-    color: white;
-  }
-  
-  .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-  }
-  
-  .btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
-  }
-  
-  .mt-3 {
-    margin-top: 1rem !important;
-  }
-  
-  .mt-4 {
-    margin-top: 1.5rem !important;
-  }
-  
-  .mt-5 {
-    margin-top: 3rem !important;
-  }
-  
-  .me-2 {
-    margin-right: 0.5rem !important;
-  }
-  
-  .mb-2 {
-    margin-bottom: 0.5rem !important;
-  }
-  
+  font-weight: 500;
+}
+
+.form-control {
+  border-radius: 0.25rem;
+}
+
+.btn {
+  border-radius: 0.25rem;
+}
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.map-container {
+  height: 100%;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+body {
+  /* background-color: #e5dab7;  Replace with your desired color */
+}
