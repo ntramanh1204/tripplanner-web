@@ -42,6 +42,26 @@
   font-size: 18px;
 }
 
+.hotel-list-container {
+  position: relative; /* Make the container relative for positioning */
+}
+
+.fixed-header {  /* Make the header sticky */
+  top: 0;             /* Stick it to the top */
+  background-color: #fff; /* Match background to the rest of the form */
+  padding-bottom: 15px;  /* Add some space below the header */
+  z-index: 1000;        /* Ensure header stays on top */
+}
+
+.hotel-card-list {
+  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: calc(100vh - 300px); /* Set max height (adjust as needed) */
+}
+
+.hotel-card.selected {
+  border: 2px solid #007bff; /* Blue border for selected hotel */
+}
+
 @media (max-width: 768px) {
   .hotel-list-container {
     padding-top: 20px;
