@@ -34,7 +34,6 @@ const InspiringSection = () => {
                 </Row>
             </div>
         </div>
-        
     );
 }
 
