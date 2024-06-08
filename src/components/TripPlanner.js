@@ -1,10 +1,38 @@
-import React from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import React, { useState, useEffect } from 'react'; import axios from 'axios';
+import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import { Container, Row, Col, Button, Form, InputGroup, FormCheck } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './TripPlanner.css';
+import SearchBox from './SearchBox';
+
+
+const MapUpdater = ({ center }) => {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center);
+  }, [center, map]);
+  return null;
+};
 
 const TripPlanner = () => {
+  //Map
+  const [center, setCenter] = useState([44.500000, -89.500000]);
+
+  useEffect(() => {
+    const getIpInfo = async () => {
+      const ip = '58.186.240.7';
+      const accessKey = '2e5760aa-2495-42d3-96c4-6b10930f920a';
+      const url = 'https://apiip.net/api/check?ip=' + ip + '&accessKey=' + accessKey;
+
+      const response = await axios.get(url);
+      console.log(response.data); // Add this line
+      const result = response.data;
+
+      setCenter([result.latitude, result.longitude]);
+    };
+    getIpInfo();
+  }, []);
+  //Navigation
   const navigate = useNavigate();
 
   const handleNavigation = () => {
@@ -86,7 +114,9 @@ const TripPlanner = () => {
         </Form>
       </Col>
       <Col md={6}>
-          <MapContainer center={[41.0128, 28.9647]} zoom={13} className="map-container">
+          <SearchBox setCoordinates={setCenter} />
+          <MapContainer center={center} zoom={13} className="map-container">
+            {<MapUpdater center={center} />}
             <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           </MapContainer>
         </Col>
