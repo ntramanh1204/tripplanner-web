@@ -1,18 +1,73 @@
 .schedule-page {
+  background-color: #f8f9fa;
   padding: 20px;
 }
 
-.schedule-list {
-  padding: 20px;
-  overflow-y: auto;
-  height: 100vh;
+.schedule-list h1 {
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
 }
 
-.schedule-map {
-  padding: 0;
-  height: 100vh;
+.schedule-list h2,
+.schedule-list p {
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: left;
+}
+
+.dropdown-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: #ffa726; /* Light orange color */
+  color: white;
+  border: none;
+  padding: 10px;
+  text-align: left;
+}
+
+.dropdown-button.open {
+  background-color: #fb8c00; /* Darker shade of orange */
+}
+
+.dropdown-arrow {
+  font-size: 1.2em;
+  margin-left: 10px;
 }
 
 .card {
-  margin-bottom: 20px;
+  background-color: white;
+  border: none;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+.schedule-map {
+  position: relative;
+}
+
+.location-icon {
+  color: #ff9800;
+  margin-right: 5px;
+}
+
+.fa-clock, .fa-money-bill-wave, .fa-walking, .fa-bus {
+  color: #ff9800;
+  margin-right: 5px;
+}
+
+.custom-marker-icon {
+  font-size: 18px; /* Adjust font size of the number */
+  color: white;     /* Set text color to white */
 }
